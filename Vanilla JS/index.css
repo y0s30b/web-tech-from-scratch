@@ -1,11 +1,17 @@
 body {
-    background-color:peru;
+    background-color: #ecf0f1;
+}
+
+.btn {
+    cursor: pointer;
 }
 
 h1 {
-    color:white;
+    color: #34495e;
+    transition: color 0.5s ease-in-out;
+    /*전환하는 효과 주는 것*/
 }
-/*
-#title {
-    color: red;
-}*/
+
+.clickedkk {
+    color: #7f8c8d;
+}

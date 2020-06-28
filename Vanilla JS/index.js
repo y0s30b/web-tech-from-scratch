@@ -1,32 +1,27 @@
 const title = document.querySelector("#title");
 
-const BASE_COLOR = "rgb(52, 73, 94)";
-const OTHER_COLOR = "#7f8c8d";
+const CLICKED_CLASS = "clickedkk";
 
 function handleClick(){
-    const currentColor = title.style.color;
-    if(currentColor === BASE_COLOR){
-        title.style.color = OTHER_COLOR;
+    /*
+    //const currentClass = title.className;
+    const hasClass = title.classList.contains(CLICKED_CLASS);
+
+    //if(currentClass !== CLICKED_CLASS){
+    if (!hasClass) {
+        title.classList.add(CLICKED_CLASS);
     } else {
-        title.style.color = BASE_COLOR;
-    }
+        title.classList.remove(CLICKED_CLASS);
+    }*/
+
+    // 위의 코드와 완전히 똑같은 기능을 수행하는 아래의 코드:
+    title.classList.toggle(CLICKED_CLASS);
+
+    console.log(title.className);
 }
 
 function init(){
-    title.style.color = BASE_COLOR;
-    //title.addEventListener("click", handleClick);
-    title.addEventListener("mouseenter", handleClick);
+    title.addEventListener("click", handleClick);
 }
 
 init();
-
-function handleOffline() {
-    console.log("Off-line...");
-}
-
-function handleOnline(){
-    console.log("Welcome Back! ");
-}
-
-window.addEventListener("offline", handleOffline);
-window.addEventListener("obnline", handleOnline);
