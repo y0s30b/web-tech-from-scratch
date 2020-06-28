@@ -18,11 +18,13 @@ function getTime(){
             console.log(time[i]);
         }
     }*/
+    // 위의 방법이 왜 안되는지는 모르겠다...?
 
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
 
+    // 삼항 연산자로 처리
     clockTitle.innerText = `${hours < 10? `0${hours}`: hours}:${minutes < 10? `0${minutes}`: minutes}:${seconds < 10? `0${seconds}`: seconds}`;
 }
 

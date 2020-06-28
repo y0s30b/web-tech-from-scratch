@@ -16,6 +16,12 @@ h1 {
     color: #7f8c8d;
 }
 
+/* form, greetings 클래스의 경우 화면에 표시x
+showing 클래스로 전환하는 경우 화면에 표시할 공간을 생성 
+
+클래스 선택은 앞에 .을 붙여 사용
+*/
+
 .form,
 .greetings {
     display: none;
