@@ -5,7 +5,8 @@ const toDoList = document.querySelector(".js-toDoList"); // <ul> 로 정의되�
 
 const TODOS_LS = 'toDos';
 
-const toDos = [];
+//const toDos = [];
+let toDos = [];
 
 function loadToDos() {
     const loadedToDos = localStorage.getItem(TODOS_LS);
@@ -17,11 +18,17 @@ function loadToDos() {
         // 저장 시 stringify, 불러올 때는 parse 이용
         console.log(parsedToDos);
 
-        for(let id in parsedToDos){
+        // 아래에는 내가 작성한 코드
+        /*for(let id in parsedToDos){
             console.log(parsedToDos[id]);
             //toDos.push(parsedToDos[id]);
             paintToDo(parsedToDos[id].text);
-        }
+        }*/
+
+        // 아래에는 노마드 코더 강의 부분
+        parsedToDos.forEach(function(toDo){ // 배열에서 forEach 이용해 각각 돌기 가능
+            paintToDo(toDo.text);
+        });
     }
 }
 
@@ -31,7 +38,7 @@ function saveToDos() {
     // JSON.stringify()를 통해 데이터 타입 변환 가능 (모든 js object -> string)
 }
 
-function delToDo(event) {
+function delToDo(event) { // 내가 작성한 함수
     //console.log(event.id);
     //console.log(event["path"][1].id);
 
@@ -71,6 +78,26 @@ function delToDo(event) {
     saveToDos();
 }
 
+/*function filterFn(toDo){
+    return toDo.id === 1; // true인 것만으로 item 생성
+}*/
+
+function deleteToDo(event) { // 노마드 버전
+    //console.dir(event.target);
+    //console.log(event.target.parentNode);const btn = evnet.target;
+    const btn = event.target;
+    const li = btn.parentNode;
+    toDoList.removeChild(li);
+
+    //const cleanToDos = toDos.filter(filterFn);
+    const cleanToDos = toDos.filter(function(toDo){
+        return toDo.id !== parseInt(li.id);
+    });
+    //console.log(cleanToDos);
+    toDos = cleanToDos;
+    saveToDos();
+}
+
 var newId = 0; // Id는 계속 증가하는 방향으로
 
 function paintToDo(text){
@@ -82,6 +109,7 @@ function paintToDo(text){
     const delBtn = document.createElement("button");
 
     delBtn.innerHTML = "&#x274C;"; // innerHTML로 넣어야 emoji 표현 가능.
+    delBtn.addEventListener("click", deleteToDo); // 노마드 버전
     
     const span = document.createElement("span");
     // <span> <-> <div> 차이:
@@ -107,7 +135,7 @@ function paintToDo(text){
     toDos.push(toDoObj);
     saveToDos();
 
-    delBtn.addEventListener("click", delToDo);
+    //delBtn.addEventListener("click", delToDo); // 내 버전
 }
 
 function handleSubmit(event){
