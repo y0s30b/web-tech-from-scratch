@@ -1,5 +1,5 @@
 body {
-    background-color: #ecf0f1;
+    background-color: #576574;
 }
 
 .btn {
@@ -29,4 +29,22 @@ showing 클래스로 전환하는 경우 화면에 표시할 공간을 생성
 
 .showing {
     display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+.backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* z-index 0이나 -1해주면 제일 뒤로 감 */
+    animation: fadeIn 2.5s linear;
 }
