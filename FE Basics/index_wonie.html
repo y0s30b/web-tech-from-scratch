@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <!-- 테크보이 워니 https://www.youtube.com/watch?v=50JOpxN0554&t=8s 참고해서 작성 -->
 <html>
     <head> <!-- 이 html 문서가 어떤 문서인지 명시하는 정보 -->
         <title>와사비맛 꽃게랑</title>
-        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="style_wonie.css" rel="stylesheet" type="text/css" />
         <!-- 다른 곳에 저장된 문서를 불러와라 (link tag) **1 -->
         <meta name="description" content="와사비맛 꽃게랑은 맛있어">
         <!-- 이 website가 어떤 정보를 갖고 있는지 더 자세하게 알려주는 경우 사용
@@ -12,6 +13,27 @@
             /*.item {
                 color: red;
             }*/
+            .top {
+                background: red;
+                height: 100px;
+            }
+            .mid {
+                background: blue;
+                height: 100px;
+            }
+            .bot {
+                background: yellow;
+                height: 100px;
+            }
+            .like {
+                background: red;
+            }
+            .sub {
+                background: blue;
+            }
+            .comment {
+                background: yellow;
+            }
         </style>
     </head>
 
@@ -48,7 +70,7 @@
 
             <b>굵은 글씨</b>
             <i>기울림 글씨</i>
-            <p>글의 한 문단! 와사비의 꽃게랑은 맛있습니다. 강추	&#x1F600;</p>
+            <p>하나의 문단! 와사비맛 꽃게랑은 맛있습니다. 강추	&#x1F600;</p>
         </div>
 
         <!-- 미디어 관련 태그들 cf. YouTube는 <iframe> tag -->
@@ -66,12 +88,77 @@
 
         <!-- 테이블 태그-->
         <div>
-            <table>
-                <thead>
+            <table border="1">
+                <thead> <!-- 이 table의 column들은 몇 개 있고, 그 column들의 이름은 무엇인지 -->
+                    <tr>
+                        <th>이름</th>
+                        <th>나이</th>
+                    </tr>
                 </thead>
-                <tbody>
+                <tbody> <!-- 표의 내용 -->
+                    <tr>
+                        <td>와사비</td>
+                        <td>26살</td>
+                    </tr>
+                    <tr>
+                        <td>민트</td>
+                        <td>24살</td>
+                    </tr>
                 </tbody>
             </table>
+        </div>
+
+        <!-- 목록 태그 -->
+        <div>
+            <!-- Bullet point를 만들어 주는 것 -->
+            <ol>
+                <li>와사비</li>
+                <li>민트</li>
+            </ol>
+        </div>
+
+        <div>
+            <ul>
+                <li>와사비맛 꽃게랑</li>
+                <li>민트 초코</li>
+            </ul>
+        </div>
+
+        <!-- 구역을 나누는 태그 
+
+        div: 한 줄 전체 공간을 차지 (block element)
+        span: 자기 내용물 만큼의 공간만 차지 (inline element)
+        -->
+        <div class="top">상단</div>
+        <div class="mid">중단</div>
+        <div class="bot">하단</div>
+
+        <span class="like">좋아요</span>
+        <span class="sub">구독</span>
+        <span class="comment">댓글</span>
+
+        <!-- 인풋 관련 태그: user에게 어떠한 정보를 받아야 할 때 사용 ex. 로그인 폼 -->
+        <div>
+        텍스트 <input type="text" />
+        체크박스 <input type="checkbox" />
+        라디오 <input type="radio" />
+        색깔 인풋 <input type="color" />
+        여러 문장 <textarea></textarea>
+        </div>
+        <div>
+        dropdown <select name="name">
+            <option value="와사비">와사비</option>
+            <option value="민트">민트</option>
+        </select>
+        <br><br>
+        <b>로그인</b>
+        <br>
+        <form>
+            <input type="email" placeholder="이메일" />
+            <input type="password" placeholder="비밀번호" />
+            <!-- input type을 잘 맞게 쓰면, @(이메일 형식 체크) 혹은 입력 값 ** 로 보이게 가능 -->
+            <button type="submit">로그인</button>
+        </form>
         </div>
     </body>
 </html>
